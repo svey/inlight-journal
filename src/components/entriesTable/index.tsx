@@ -15,15 +15,19 @@ export const EntriesTable = (props: EntriesTableInterface) => {
 
   return (
     <>
-      <button onClick={() =>  exportTableToCSV('entries-table', 'members.csv')}>
-        Export HTML Table To CSV File
-      </button>
       <table id="entries-table" className="table">
         <thead>
           <tr>
             <th className="table-head-item">Color</th>
             <th className="table-head-item">Date</th>
-            <th className="table-head-item" />
+            <th className="table-head-item">
+              <button
+                disabled={props.entries.length === 0}
+                onClick={() => exportTableToCSV('entries-table', 'insight-journal.csv')}
+              >
+                Export
+              </button>
+            </th>
           </tr>
         </thead>
         <tbody className="table-body">
