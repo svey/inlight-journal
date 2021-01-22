@@ -2,7 +2,7 @@ import React from 'react';
 import { EntryInterface } from '../interfaces';
 import { EntryRow, EntryFormRow } from './components';
 import { exportTableToCSV } from '../../utils/table';
-import './../../styles/entriesTable.css';
+import './style.css';
 
 interface EntriesTableInterface {
   entries: EntryInterface[];
