@@ -30,13 +30,13 @@ export const Layout = (props: LayoutInterface) => {
   };
 
   return (
-    <div className="horizontal-flex stretch-flex">
+    <div className="vertical-flex stretch-flex">
+      <AnalysisCharts data={entries} loading={loading} />
       <EntriesTable
         fetchEntries={fetchEntries}
         entries={entries}
         loading={loading}
       />
-      <AnalysisCharts data={entries} loading={loading} />
     </div>
   );
 };

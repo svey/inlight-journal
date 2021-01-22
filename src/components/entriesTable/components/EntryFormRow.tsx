@@ -40,20 +40,20 @@ export const EntryFormRow = (props: EntryFormInterface) => {
           <input
             className="form-input"
             type="text"
-            id="entryDate"
-            name="entryDate"
-            value={entryDate}
-            onChange={(e) => setEntryDate(e.currentTarget.value)}
+            id="color"
+            name="color"
+            value={color}
+            onChange={(e) => setColor(e.currentTarget.value)}
           />
         </td>
         <td className="table-item">
           <input
             className="form-input"
             type="text"
-            id="color"
-            name="color"
-            value={color}
-            onChange={(e) => setColor(e.currentTarget.value)}
+            id="entryDate"
+            name="entryDate"
+            value={entryDate}
+            onChange={(e) => setEntryDate(e.currentTarget.value)}
           />
         </td>
         <td className="table-item">

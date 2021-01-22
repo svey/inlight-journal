@@ -16,14 +16,14 @@ html {
 }
 
 body {
-  background: rgb(244, 236, 216);
+  background: #80800017;
   font-family: helvetica;
-  color: rgb(91, 70, 54);
 }
 
 .vertical-flex {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .horizontal-flex {

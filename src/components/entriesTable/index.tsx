@@ -16,8 +16,8 @@ export const EntriesTable = (props: EntriesTableInterface) => {
     <table className="table">
       <thead>
         <tr>
-          <th className="table-head-item">Date</th>
           <th className="table-head-item">Color</th>
+          <th className="table-head-item">Date</th>
           <th className="table-head-item" />
         </tr>
       </thead>
