@@ -6,12 +6,11 @@ interface LayoutInterface {
   Header?: React.ElementType;
   Footer?: React.ElementType;
   AnalysisCharts: React.ElementType;
-  EntryForm: React.ElementType;
   EntriesTable: React.ElementType;
 }
 
 export const Layout = (props: LayoutInterface) => {
-  const { AnalysisCharts, EntryForm, EntriesTable } = props;
+  const { AnalysisCharts, EntriesTable } = props;
 
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,21 +29,14 @@ export const Layout = (props: LayoutInterface) => {
       .catch((error) => console.error(`Journal fetch error: ${error}`));
   };
 
-  
-
   return (
-    <div className="horizontal-flex">
-      <div className="vertical-flex stretch-flex">
-        <AnalysisCharts data={entries} loading={loading} />
-        <EntryForm fetchEntries={fetchEntries} />
-      </div>
-      <div className="stretch-flex">
-        <EntriesTable
-          fetchEntries={fetchEntries}
-          entries={entries}
-          loading={loading}
-        />
-      </div>
+    <div className="horizontal-flex stretch-flex">
+      <EntriesTable
+        fetchEntries={fetchEntries}
+        entries={entries}
+        loading={loading}
+      />
+      <AnalysisCharts data={entries} loading={loading} />
     </div>
   );
 };

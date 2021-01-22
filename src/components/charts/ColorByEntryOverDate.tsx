@@ -19,16 +19,30 @@ export interface ColorByEntryOverDateInterface {
   data: EntryInterface[];
 }
 
-let getColorVal = (entry: EntryInterface) => {
-  console.log(entry);
-  
-  if (entry.color === 'green') return 3.5;
-  if (entry.color === 'yellow') return 2;
-  if (entry.color === 'red') return 0.5;
+type colorMapToValueType = {
+  [key: string]: number;
 };
 
+const colorToValueMap: colorMapToValueType = {
+  green: 3,
+  yellow: 2,
+  red: 1,
+};
+
+type valueMapToColorType = {
+  [key: number]: string;
+};
+
+const valueToColorMap: valueMapToColorType = {
+  3: 'green',
+  2: 'yellow',
+  1: 'red',
+};
+
+const getColorValue = (entry: EntryInterface) => colorToValueMap[entry.color];
+const getValueColor = (entryValue: number) => valueToColorMap[entryValue];
+
 export const ColorByEntryOverDate = (props: ColorByEntryOverDateInterface) => {
-  console.log(props.data)
   return (
     <LineChart
       width={500}
@@ -43,10 +57,10 @@ export const ColorByEntryOverDate = (props: ColorByEntryOverDateInterface) => {
     >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="entryDate" />
-      <YAxis />
+      <YAxis interval={1} domain={[1, 3]} tickFormatter={getValueColor} />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey={getColorVal} stroke="#82ca9d" />
+      <Line type="monotone" dataKey={getColorValue} stroke="#82ca9d" />
     </LineChart>
   );
 };

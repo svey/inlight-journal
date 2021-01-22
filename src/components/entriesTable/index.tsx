@@ -1,6 +1,6 @@
 import React from 'react';
 import { EntryInterface } from '../interfaces';
-import { EntryRow } from './components';
+import { EntryRow, EntryFormRow } from './components';
 import './../../styles/entriesTable.css';
 
 interface EntriesTableInterface {
@@ -22,16 +22,22 @@ export const EntriesTable = (props: EntriesTableInterface) => {
         </tr>
       </thead>
       <tbody className="table-body">
+        <EntryFormRow fetchEntries={props.fetchEntries} />
         {props.entries.length > 0 ? (
-          props.entries.map((entry: EntryInterface, idx: number) => (
-            <EntryRow fetchEntries={props.fetchEntries} className={entry.color} key={entry.id} entry={entry} />
-          ))
+          props.entries.reduceRight((arr: any, entry: EntryInterface) => {
+            return [
+              ...arr,
+              <EntryRow
+                fetchEntries={props.fetchEntries}
+                className={entry.color}
+                key={entry.id}
+                entry={entry}
+              />,
+            ];
+          }, [])
         ) : (
           <tr className="table-row">
-            <td
-              className="table-item"
-              colSpan={6}
-            >
+            <td className="table-item" colSpan={6}>
               There are no entrys to show. Create one!
             </td>
           </tr>

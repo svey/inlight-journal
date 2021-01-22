@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 
 interface EntryFormInterface {
   fetchEntries: Function;
 }
 
-export const EntryForm = (props: EntryFormInterface) => {
+export const EntryFormRow = (props: EntryFormInterface) => {
   const { fetchEntries } = props;
   // @todo Formik
   const DEFAULT_DATE = new Date().toDateString();
   const [entryDate, setEntryDate] = useState(DEFAULT_DATE);
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState('');
 
   const handleInputsReset = () => {
-    setColor("");
+    setColor('');
     setEntryDate(DEFAULT_DATE);
   };
 
   const handleEntryCreate = () => {
     axios
-      .post("http://localhost:4001/journal/create", {
+      .post('http://localhost:4001/journal/create', {
         color,
         entryDate,
       })
@@ -35,10 +35,8 @@ export const EntryForm = (props: EntryFormInterface) => {
   };
 
   return (
-    <form className="entry-form">
-          <label className="form-label" htmlFor="entryDate">
-            Entry Date:
-          </label>
+      <tr className={`table-row ${color}`}>
+        <td className="table-item">
           <input
             className="form-input"
             type="text"
@@ -47,9 +45,8 @@ export const EntryForm = (props: EntryFormInterface) => {
             value={entryDate}
             onChange={(e) => setEntryDate(e.currentTarget.value)}
           />
-          <label className="form-label" htmlFor="color">
-            Color:
-          </label>
+        </td>
+        <td className="table-item">
           <input
             className="form-input"
             type="text"
@@ -58,9 +55,12 @@ export const EntryForm = (props: EntryFormInterface) => {
             value={color}
             onChange={(e) => setColor(e.currentTarget.value)}
           />
-      <button onClick={handleEntrySubmit} className="btn btn-add">
-        Submit
-      </button>
-    </form>
+        </td>
+        <td className="table-item">
+          <button onClick={handleEntrySubmit} className="btn btn-add">
+            Submit
+          </button>
+        </td>
+      </tr>
   );
 };
