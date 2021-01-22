@@ -23,7 +23,7 @@ export const EntriesTable = (props: EntriesTableInterface) => {
             <th className="table-head-item">
               <button
                 disabled={props.entries.length === 0}
-                onClick={() => exportTableToCSV('entries-table', 'insight-journal.csv')}
+                onClick={() => exportTableToCSV('entries-table', 'inlight-journal.csv')}
               >
                 Export
               </button>
