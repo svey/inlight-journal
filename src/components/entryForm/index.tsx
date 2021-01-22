@@ -23,12 +23,8 @@ export const EntryForm = (props: EntryFormInterface) => {
         color,
         entryDate,
       })
-      .then((res) => {
-        fetchEntries();
-      })
-      .catch((error) =>
-        console.error(`"${color}" entry creation error: ${error}`)
-      );
+      .then(() => fetchEntries())
+      .catch(console.log);
   };
 
   const handleEntrySubmit = () => {

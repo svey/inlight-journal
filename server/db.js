@@ -36,11 +36,6 @@ knex.schema
   .catch((error) => {
     console.error(`There was an error setting up the database: ${error}`);
   });
-// @todo remove
-knex
-  .select("*")
-  .from("journal")
-  .then((data) => console.log("data:", data))
-  .catch((error) => console.log(error));
+
 
 module.exports = knex;

@@ -29,6 +29,9 @@ export const Layout = (props: LayoutInterface) => {
       })
       .catch((error) => console.error(`Journal fetch error: ${error}`));
   };
+
+  
+
   return (
     <div className="horizontal-flex">
       <div className="vertical-flex stretch-flex">

@@ -6,6 +6,7 @@ import './../../styles/entriesTable.css';
 interface EntriesTableInterface {
   entries: EntryInterface[];
   loading: boolean;
+  fetchEntries: Function;
 }
 
 export const EntriesTable = (props: EntriesTableInterface) => {
@@ -23,7 +24,7 @@ export const EntriesTable = (props: EntriesTableInterface) => {
       <tbody className="table-body">
         {props.entries.length > 0 ? (
           props.entries.map((entry: EntryInterface, idx: number) => (
-            <EntryRow className={entry.color} key={entry.id} entry={entry} />
+            <EntryRow fetchEntries={props.fetchEntries} className={entry.color} key={entry.id} entry={entry} />
           ))
         ) : (
           <tr className="table-row">
