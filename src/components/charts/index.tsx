@@ -1,0 +1,1 @@
+export { ColorByEntryOverDate } from "./ColorByEntryOverDate";
