@@ -1,1 +1,1 @@
-export { ColorByEntryOverDate } from "./ColorByEntryOverDate";
+export { ColorOverDate } from "./ColorOverDate";

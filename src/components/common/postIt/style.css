@@ -1,0 +1,14 @@
+.post-it {
+  color:#000;
+  background:#ffc;
+  padding: 10px;
+  height: 300px;
+  width: 300px;
+  display: inline-block;
+  overflow: hidden;
+  margin: 10px 10px 0 0;
+}
+
+.post-it.red {
+  background-color: #ffaa9f;
+}

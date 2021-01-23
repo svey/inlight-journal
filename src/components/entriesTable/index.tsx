@@ -1,9 +1,9 @@
 import React from 'react';
 import { EntryI } from '../interfaces';
 import { EntryRow, EntryFormRow } from './components';
-import { ColorByEntryOverDate } from '../charts';
+import { ColorOverDate } from '../charts';
 import { exportTableToCSV } from '../../utils/table';
-import { Button } from '../common';
+import { Button, PostIt } from '../common';
 import './style.css';
 
 interface EntriesTableI {
@@ -16,7 +16,6 @@ export const EntriesTable = (props: EntriesTableI) => {
   if (props.loading) return <p>Loading your journal :)...</p>;
 
   return (
-    <>
       <table id="entries-table" className="table">
         <thead>
           <tr className="table-row">
@@ -53,19 +52,12 @@ export const EntriesTable = (props: EntriesTableI) => {
           ) : (
             <tr className="table-row">
               <td className="table-item" />
-              <td className="table-item" colSpan={5}>
+              <td className="table-item">
                 There are no entrys to show. Create one!
               </td>
             </tr>
           )}
-          <tr className="table-row">
-            <td className="table-item" />
-            <td className="table-item" colSpan={5}>
-              <ColorByEntryOverDate data={props.entries} />
-            </td>
-          </tr>
         </tbody>
       </table>
-    </>
   );
 };

@@ -17,7 +17,16 @@ html {
 
 body {
   background: #80800017;
-  font-family: helvetica;
+  font-family: courier, monospace;
+  font-size: 20px;
+}
+
+.text {
+  padding: 10px;
+}
+
+.bold {
+  font-weight: 600;
 }
 
 .vertical-flex {
@@ -33,4 +42,11 @@ body {
 
 .stretch-flex {
   align-self: stretch;
+}
+
+#chart-container {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 400px;
 }

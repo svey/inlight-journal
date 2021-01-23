@@ -7,3 +7,7 @@ export interface EntryI {
 export interface PropsI {
   [x:string]: any;
 }
+
+export interface ResponseI {
+  data: any;
+}

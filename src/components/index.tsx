@@ -1,2 +1,2 @@
 export { EntriesTable } from './entriesTable';
-export { ColorByEntryOverDate } from './charts';
+export { ColorOverDate } from './charts';
