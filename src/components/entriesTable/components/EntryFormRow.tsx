@@ -8,7 +8,7 @@ interface EntryFormInterface {
 export const EntryFormRow = (props: EntryFormInterface) => {
   const { fetchEntries } = props;
   // @todo Formik
-  const DEFAULT_DATE = new Date().toDateString();
+  const DEFAULT_DATE = new Date().toISOString().slice(0,10);
   const [entryDate, setEntryDate] = useState(DEFAULT_DATE);
   const [color, setColor] = useState('');
 
@@ -35,32 +35,26 @@ export const EntryFormRow = (props: EntryFormInterface) => {
   };
 
   return (
-      <tr className={`table-row ${color}`}>
-        <td className="table-item">
-          <input
-            className="form-input"
-            type="text"
-            id="color"
-            name="color"
-            value={color}
-            onChange={(e) => setColor(e.currentTarget.value)}
-          />
-        </td>
-        <td className="table-item">
-          <input
-            className="form-input"
-            type="text"
-            id="entryDate"
-            name="entryDate"
-            value={entryDate}
-            onChange={(e) => setEntryDate(e.currentTarget.value)}
-          />
-        </td>
-        <td className="table-item">
-          <button onClick={handleEntrySubmit} className="btn btn-add">
-            Submit
-          </button>
-        </td>
-      </tr>
+    <tr className={`table-row ${color}`}>
+      <td className="table-item" />
+      <td className="table-item">
+        <input
+          className="form-input"
+          type="text"
+          id="color"
+          name="color"
+          value={color}
+          onChange={(e) => setColor(e.currentTarget.value)}
+        />
+      </td>
+      <td className="table-item">
+        {entryDate}
+      </td>
+      <td className="table-item">
+        <button onClick={handleEntrySubmit} className="btn btn-add">
+          Submit
+        </button>
+      </td>
+    </tr>
   );
 };

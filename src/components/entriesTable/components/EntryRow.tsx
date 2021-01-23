@@ -19,6 +19,7 @@ const handleEntryDelete = (id: number, onSuccessHandler: Function) => {
 
 export const EntryRow = (props: EntryRowInterface) => (
   <tr className={`table-row ${props.className}`}>
+    <td className="table-item" />
     <td className="table-item">
       <ColorBox color={props.entry.color} />
     </td>
