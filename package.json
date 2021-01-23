@@ -51,13 +51,13 @@
     "knex": "0.20.13",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "recharts": "^2.0.3"
+    "recharts": "^2.0.3",
+    "concurrently": "5.1.0"
   },
   "devDependencies": {
     "@types/express": "4.17.6",
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.6",
-    "concurrently": "5.1.0",
     "nodemon": "2.0.3",
     "react-scripts": "3.4.1",
     "sqlite3": "4.1.1",
