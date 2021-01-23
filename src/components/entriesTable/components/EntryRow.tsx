@@ -10,7 +10,7 @@ interface EntryRowI {
 
 const handleEntryDelete = (id: number, onSuccessHandler: Function) => {
   axios
-    .put('http://localhost:4001/journal/delete', {
+    .put('/journal/delete', {
       id,
     })
     .then(() => onSuccessHandler())

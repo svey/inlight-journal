@@ -20,7 +20,7 @@ export const EntryFormRow = (props: EntryFormI) => {
 
   const handleEntryCreate = () => {
     axios
-      .post('http://localhost:4001/journal/create', {
+      .post('/journal/create', {
         color,
         entryDate,
       })

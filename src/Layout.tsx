@@ -20,7 +20,7 @@ export const Layout = (props: LayoutI) => {
 
   const fetchEntries = async () => {
     axios
-      .get('http://localhost:4001/journal/all')
+      .get('/journal/all')
       .then((response) => {
         setEntries(response.data);
         setLoading(false);
