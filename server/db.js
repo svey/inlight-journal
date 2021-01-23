@@ -1,5 +1,4 @@
 const path = require("path");
-// location of database.sqlite file
 const dbPath = path.resolve(__dirname, "db/database.sqlite");
 
 const knex = require("knex")({

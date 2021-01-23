@@ -10,7 +10,6 @@
     "type": "git",
     "url": "https://github.com/svey/inlight-journal"
   },
-  "homepage": "https://github.com/svey/inlight-journal", 
   "keywords": [
     "app",
     "express",
@@ -31,15 +30,15 @@
     "yarn": ">=1.1.0"
   },
   "main": "src/index.tsx",
-  "prox": "http://localhost:4001",
+  "proxy": "http://localhost:4001",
   "scripts": {
     "build": "node ./buildScript",
     "build-front": "react-scripts build",
     "eject": "react-scripts eject",
     "start-server": "node server/server.js",
     "start-front": "react-scripts start",
-    "start": "concurrently \"npm run start-server\" \"npm run start-front\"",
-    "test": "react-scripts test --env=jsdom"
+    "start": "node server/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "dependencies": {
     "react-scripts": "3.4.1",
