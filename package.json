@@ -6,6 +6,7 @@
     "name": "Marcus Svehlak",
     "url": "https://svey.com"
   },
+  "homepage": "https://inlight-journal.herokuapp.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/svey/inlight-journal"
