@@ -5,12 +5,11 @@ import './styles/styles.css';
 interface LayoutInterface {
   Header?: React.ElementType;
   Footer?: React.ElementType;
-  AnalysisCharts: React.ElementType;
   EntriesTable: React.ElementType;
 }
 
 export const Layout = (props: LayoutInterface) => {
-  const { AnalysisCharts, EntriesTable } = props;
+  const { EntriesTable } = props;
 
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,13 +29,10 @@ export const Layout = (props: LayoutInterface) => {
   };
 
   return (
-    <div className="vertical-flex stretch-flex">
-      <AnalysisCharts data={entries} loading={loading} />
-      <EntriesTable
-        fetchEntries={fetchEntries}
-        entries={entries}
-        loading={loading}
-      />
-    </div>
+    <EntriesTable
+      fetchEntries={fetchEntries}
+      entries={entries}
+      loading={loading}
+    />
   );
 };
