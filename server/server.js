@@ -8,8 +8,8 @@ const path = require('path');
 
 const PORT = process.env.PORT || 4001;
 const app = express();
-const buildPath = path.join(__dirname, '.', 'build');
-const clientPath = path.join(__dirname, '.', 'build', 'index.html');
+const buildPath = path.join(__dirname, 'build');
+const clientPath = path.join(__dirname, 'build', 'index.html');
 
 // must be above routes
 app.use(cors());
