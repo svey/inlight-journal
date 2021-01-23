@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './styles/styles.css';
 
-interface LayoutInterface {
+interface LayoutI {
   Header?: React.ElementType;
   Footer?: React.ElementType;
   EntriesTable: React.ElementType;
 }
 
-export const Layout = (props: LayoutInterface) => {
+export const Layout = (props: LayoutI) => {
   const { EntriesTable } = props;
 
   const [entries, setEntries] = useState([]);

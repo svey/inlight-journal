@@ -1,17 +1,18 @@
 import React from 'react';
-import { EntryInterface } from '../interfaces';
+import { EntryI } from '../interfaces';
 import { EntryRow, EntryFormRow } from './components';
 import { ColorByEntryOverDate } from '../charts';
 import { exportTableToCSV } from '../../utils/table';
+import { Button } from '../common';
 import './style.css';
 
-interface EntriesTableInterface {
-  entries: EntryInterface[];
+interface EntriesTableI {
+  entries: EntryI[];
   loading: boolean;
   fetchEntries: Function;
 }
 
-export const EntriesTable = (props: EntriesTableInterface) => {
+export const EntriesTable = (props: EntriesTableI) => {
   if (props.loading) return <p>Loading your journal :)...</p>;
 
   return (
@@ -23,21 +24,22 @@ export const EntriesTable = (props: EntriesTableInterface) => {
             <th className="table-head-item">Color</th>
             <th className="table-head-item">Date</th>
             <th className="table-head-item">
-              <button
+              <Button
+                className="blue"
                 disabled={props.entries.length === 0}
                 onClick={() =>
                   exportTableToCSV('entries-table', 'inlight-journal.csv')
                 }
               >
                 Export
-              </button>
+              </Button>
             </th>
           </tr>
         </thead>
         <tbody className="table-body">
           <EntryFormRow fetchEntries={props.fetchEntries} />
           {props.entries.length > 0 ? (
-            props.entries.reduceRight((arr: any, entry: EntryInterface) => {
+            props.entries.reduceRight((arr: any, entry: EntryI) => {
               return [
                 ...arr,
                 <EntryRow

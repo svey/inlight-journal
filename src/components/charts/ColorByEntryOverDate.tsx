@@ -9,14 +9,14 @@ import {
   Legend,
 } from 'recharts';
 
-export interface EntryInterface {
+export interface EntryI {
   id: number;
   color: string;
   entryDate: string;
 }
 
-export interface ColorByEntryOverDateInterface {
-  data: EntryInterface[];
+export interface ColorByEntryOverDateI {
+  data: EntryI[];
 }
 
 type colorMapToValueType = {
@@ -39,10 +39,10 @@ const valueToColorMap: valueMapToColorType = {
   1: 'red',
 };
 
-const getColorValue = (entry: EntryInterface) => colorToValueMap[entry.color];
+const getColorValue = (entry: EntryI) => colorToValueMap[entry.color];
 const getValueColor = (entryValue: number) => valueToColorMap[entryValue];
 
-export const ColorByEntryOverDate = (props: ColorByEntryOverDateInterface) => {
+export const ColorByEntryOverDate = (props: ColorByEntryOverDateI) => {
   return (
     <LineChart
       width={500}

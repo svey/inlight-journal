@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import { EntryInterface } from '../../interfaces';
-import { ColorBox } from '../../common';
-interface EntryRowInterface {
+import { EntryI } from '../../interfaces';
+import { ColorBox, Button } from '../../common';
+interface EntryRowI {
   className: string;
-  entry: EntryInterface;
+  entry: EntryI;
   fetchEntries: Function;
 }
 
@@ -17,20 +17,20 @@ const handleEntryDelete = (id: number, onSuccessHandler: Function) => {
     .catch(console.log);
 };
 
-export const EntryRow = (props: EntryRowInterface) => (
+export const EntryRow = (props: EntryRowI) => (
   <tr className={`table-row ${props.className}`}>
     <td className="table-item" />
     <td className="table-item">
       <ColorBox color={props.entry.color} />
+      <span style={{ paddingLeft: '10px' }}>{props.entry.color}</span>
     </td>
     <td className="table-item">{props.entry.entryDate}</td>
     <td className="table-item">
-      <button
-        className="btn btn-remove"
+      <Button className="red"
         onClick={() => handleEntryDelete(props.entry.id, props.fetchEntries)}
       >
         Delete
-      </button>
+      </Button>
     </td>
   </tr>
 );

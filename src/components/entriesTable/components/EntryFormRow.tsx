@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Button } from '../../common';
 
-interface EntryFormInterface {
+interface EntryFormI {
   fetchEntries: Function;
 }
 
-export const EntryFormRow = (props: EntryFormInterface) => {
+export const EntryFormRow = (props: EntryFormI) => {
   const { fetchEntries } = props;
   // @todo Formik
   const DEFAULT_DATE = new Date().toISOString().slice(0,10);
@@ -51,9 +52,9 @@ export const EntryFormRow = (props: EntryFormInterface) => {
         {entryDate}
       </td>
       <td className="table-item">
-        <button onClick={handleEntrySubmit} className="btn btn-add">
+        <Button className="blue" onClick={handleEntrySubmit}>
           Submit
-        </button>
+        </Button>
       </td>
     </tr>
   );
