@@ -39,6 +39,7 @@ const valueToColorMap: valueMapToColorType = {
   1: 'red',
 };
 
+const getShortDateLabel = (entry: EntryI) => entry.entryDate.slice(5,10);
 const getColorValue = (entry: EntryI) => colorToValueMap[entry.color];
 const getValueColor = (entryValue: number) => valueToColorMap[entryValue];
 
@@ -56,7 +57,7 @@ export const ColorByEntryOverDate = (props: ColorByEntryOverDateI) => {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="entryDate" />
+      <XAxis dataKey={getShortDateLabel} />
       <YAxis interval={1} domain={[1, 3]} tickFormatter={getValueColor} />
       <Tooltip />
       <Legend />
