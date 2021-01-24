@@ -50,3 +50,10 @@ body {
   width: 100%;
   height: 400px;
 }
+
+.arrow-closed:after {
+  content: '\003E';
+}
+.arrow-opened:after {
+  content: '\003C';
+}

@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Button } from '../../common';
+import { Button, ColorBox, Dropdown } from '../../common';
 
 interface EntryFormI {
   fetchEntries: Function;
 }
+
+type OptionComponentPropT = {
+  value: string;
+  [x: string]: any;
+}
+
+const OptionComponent = (props: OptionComponentPropT) => <Button type="button" {...props} ><ColorBox color={props.value} /></Button>;
 
 export const EntryFormRow = (props: EntryFormI) => {
   const { fetchEntries } = props;
@@ -39,13 +46,26 @@ export const EntryFormRow = (props: EntryFormI) => {
     <tr className={`table-row ${color}`}>
       <td className="table-item" />
       <td className="table-item">
-        <input
-          className="form-input"
-          type="text"
-          id="color"
-          name="color"
+        <Dropdown
           value={color}
-          onChange={(e) => setColor(e.currentTarget.value)}
+          onChange={(e: any) => setColor(e.target.value)}
+          options={[
+            {
+              text: 'Green',
+              value: 'green',
+              component: OptionComponent
+            },
+            {
+              text: 'Yellow',
+              value: 'yellow',
+              component: OptionComponent
+            },
+            {
+              text: 'Red',
+              value: 'red',
+              component: OptionComponent
+            },
+          ]}
         />
       </td>
       <td className="table-item">
