@@ -1,9 +1,8 @@
 import React from 'react';
 import { EntryI } from '../interfaces';
 import { EntryRow, EntryFormRow } from './components';
-import { ColorOverDate } from '../charts';
 import { exportTableToCSV } from '../../utils/table';
-import { Button, PostIt } from '../common';
+import { Button } from '../common';
 import './style.css';
 
 interface EntriesTableI {

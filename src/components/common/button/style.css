@@ -4,6 +4,8 @@ button {
   line-height: 1.15;
   margin: 0;
   border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 button.red {
@@ -13,4 +15,3 @@ button.red {
 button.blue {
   color: blue;
 }
-

@@ -1,15 +1,13 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { withOutsideClick } from '../../hocs';
-import { Button } from '../button';
+import { withOutsideClick } from '../../../hocs';
+import { Button } from '../../button';
+import { EventT } from '../../../interfaces';
+import './style.css';
 
 type OptionT = {
   text: string;
   value: string;
   component?: React.ElementType;
-};
-
-type EventT = {
-  target: object;
 };
 
 type DropdownProps = {
@@ -52,29 +50,34 @@ const Input: FunctionComponent<DropdownProps> = ({
     return {};
   });
 
+  const Options = options.map((option) => {
+    const OptionComponent = option.component || DefaultOption;
+    const updateEventValue = (e: EventT, value: string): EventT => ({
+      ...e,
+      target: { ...e.target, value },
+    });
+    return (
+      <OptionComponent
+        key={option.value}
+        onClick={(e: EventT) => {
+          const updatedEvent = updateEventValue(e, option.value);
+          onChange(updatedEvent);
+        }}
+        {...option}
+      />
+    );
+  });
+
   return (
     <>
-      <Button {...rest} className={`blue ${isOpen ? 'arrow-opened': 'arrow-closed' }`} onClick={handleToggle}>
+      <Button
+        {...rest}
+        className={`blue ${isOpen ? 'arrow-opened' : 'arrow-closed'}`}
+        onClick={handleToggle}
+      >
         {dropdownText ? dropdownText.text : 'Select'}
       </Button>
-      {isOpen &&
-        options.map((option) => {
-          const OptionComponent = option.component || DefaultOption;
-          const updateEventValue = (e: EventT, value: string): EventT => ({
-            ...e,
-            target: { ...e.target, value },
-          });
-          return (
-            <OptionComponent
-              key={option.value}
-              onClick={(e: EventT) => {
-                const updatedEvent = updateEventValue(e, option.value);
-                onChange(updatedEvent);
-              }}
-              {...option}
-            />
-          );
-        })}
+      {isOpen && <div className="options">{Options}</div>}
     </>
   );
 };

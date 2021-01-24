@@ -34,6 +34,7 @@ export const Layout = (props: LayoutI) => {
 
   return (
     <>
+      <div className="text bold">Stoplight Diary</div>
       <EntriesTable
         fetchEntries={fetchEntries}
         entries={entries}
